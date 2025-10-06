@@ -1,13 +1,83 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi PWA Educativa</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <div class="splash-content">
+      <img src="/icons/icon-192.png" alt="Logo PWA" class="splash-logo">
+      <h1>Mi PWA Educativa</h1>
+      <p>Cargando...</p>
+    </div>
+  </div>
+
+  <!-- App Shell -->
+  <div id="app" style="display:none;">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <img src="/icons/icon-512.png" alt="Logo" class="sidebar-logo">
+      <nav>
+        <button class="nav-btn active" data-target="home">Inicio</button>
+        <button class="nav-btn" data-target="quiz">Quiz</button>
+        <button class="nav-btn" data-target="about">Acerca</button>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Home Screen -->
+      <div class="screen" id="home">
+        <h1>Bienvenido a Mi PWA Educativa</h1>
+        <p>Aprende de forma interactiva, rápida y offline.</p>
+
+        <div class="card-container">
+          <div class="card">
+            <h3>⚡ Rápida</h3>
+            <p>Carga instantánea gracias a App Shell y cache.</p>
+          </div>
+          <div class="card">
+            <h3>📱 Instalable</h3>
+            <p>Agrega esta PWA a tu dispositivo y úsala offline.</p>
+          </div>
+          <div class="card">
+            <h3>🔒 Segura</h3>
+            <p>Servicio de cache seguro, sin perder datos.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Screen -->
+      <div class="screen" id="quiz" style="display:none;">
+        <h1>Mini Quiz Interactivo</h1>
+        <div class="quiz-card">
+          <p id="question">Pregunta cargando...</p>
+          <div id="answers"></div>
+          <p id="result" class="result"></p>
+          <button id="nextBtn" class="next-btn" style="display:none;">Siguiente</button>
+          <button id="restartBtn" class="next-btn" style="display:none;">Reiniciar Quiz</button>
+        </div>
+      </div>
+
+      <!-- About Screen -->
+      <div class="screen" id="about" style="display:none;">
+        <h1>Acerca de esta PWA</h1>
+        <p>Esta aplicación educativa utiliza las mejores prácticas de PWA:</p>
+        <ul>
+          <li>Responsive y usable en cualquier dispositivo</li>
+          <li>Navegación fluida sin recargas</li>
+          <li>Instalable como aplicación nativa</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <script src="/main.js"></script>
+</body>
 </html>
